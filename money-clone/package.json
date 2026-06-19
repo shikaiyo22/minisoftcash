@@ -1,0 +1,55 @@
+{
+  "name": "money-manager",
+  "version": "1.0.0",
+  "description": "A standalone personal finance manager (Microsoft Money style)",
+  "main": "src/main/main.js",
+  "author": "You",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "postinstall": "electron-builder install-app-deps",
+    "rebuild": "electron-rebuild -f -w better-sqlite3",
+    "dist": "npm run rebuild && electron-builder",
+    "dist:win": "npm run rebuild && electron-builder --win --x64"
+  },
+  "build": {
+    "appId": "com.local.moneymanager",
+    "productName": "Money Manager",
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "files": [
+      "src/**/*",
+      "package.json",
+      "!**/*.map"
+    ],
+    "win": {
+      "target": [
+        { "target": "nsis", "arch": ["x64"] }
+      ],
+      "icon": "build/icon.ico",
+      "artifactName": "${productName}-Setup-${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Money Manager"
+    },
+    "asarUnpack": [
+      "**/node_modules/better-sqlite3/**"
+    ]
+  },
+  "devDependencies": {
+    "electron": "^31.7.7",
+    "electron-builder": "^24.13.3",
+    "@electron/rebuild": "^3.6.0"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.3.0"
+  }
+}

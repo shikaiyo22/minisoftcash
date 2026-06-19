@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self';" />
+  <title>Money Manager</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark"></span> Money Manager</div>
+
+      <nav class="nav-section">
+        <div class="nav-item" data-view="dashboard"><span class="nav-icon">&#9632;</span> Dashboard</div>
+        <div class="nav-item" data-view="accounts"><span class="nav-icon">&#9633;</span> Accounts</div>
+        <div class="nav-item" data-view="budget"><span class="nav-icon">&#9637;</span> Budget</div>
+        <div class="nav-item" data-view="investments"><span class="nav-icon">&#9650;</span> Investments</div>
+        <div class="nav-item" data-view="reports"><span class="nav-icon">&#9776;</span> Reports</div>
+        <div class="nav-item" data-view="categories"><span class="nav-icon">&#9673;</span> Categories</div>
+      </nav>
+
+      <div class="nav-section">
+        <div class="nav-section-title">Accounts</div>
+        <div id="sidebar-accounts"></div>
+      </div>
+
+      <div class="sidebar-footer">Money Manager v1.0</div>
+    </aside>
+
+    <main class="main">
+      <div class="topbar">
+        <div>
+          <h1 id="view-title">Dashboard</h1>
+          <div class="topbar-sub" id="view-subtitle">Your financial overview</div>
+        </div>
+      </div>
+      <div class="view-scroll">
+        <div id="view-content"></div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/format.js"></script>
+  <script src="js/modal.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/view-dashboard.js"></script>
+  <script src="js/view-accounts.js"></script>
+  <script src="js/view-ledger.js"></script>
+  <script src="js/view-budget.js"></script>
+  <script src="js/view-investments.js"></script>
+  <script src="js/view-reports.js"></script>
+  <script src="js/view-categories.js"></script>
+  <script src="js/router.js"></script>
+</body>
+</html>
